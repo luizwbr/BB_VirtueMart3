@@ -1,5 +1,5 @@
 # BB_VirtueMart3
-Plugin para emissão de boletos do Banco do Brasil para VirtueMart 3.x
+Plugin de método de pagamento para VirtueMart, com emissão de boleto bancário direto, compatível com o Banco do Brasil
 
 ------------------------
 * Virtuemart 3.x / Joomla 3.x
@@ -31,16 +31,17 @@ Passo 3 - Na aba configurações, preencha os dados:
 * Aguardando Pagto: Status do Pedido quando transação Pendente
 
 Configuração do retorno automático ( arquivo do banco ).
--- Visualizar
+* Visualizar
 http://seusite.com.br/index.php?option=com_virtuemart&view=pluginresponse&task=pluginresponsereceived&pm=4&boleto=1
 
--- Atualizar
+* Atualizar
 http://seusite.com.br/index.php?option=com_virtuemart&view=pluginresponse&task=pluginresponsereceived&pm=4&boleto=1&atualiza=1
+
 Licença
 
 -------
 
-Copyright Weber TI.
+Copyright Luiz Felipe Weber.
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
 
@@ -65,3 +66,12 @@ Achou e corrigiu um bug ou tem alguma feature em mente e deseja contribuir?
 * Rode um push para o branch (git push origin my-new-feature)
 * Envie um Pull Request
 * Obs.: Adicione exemplos para sua nova feature. Se seu Pull Request for relacionado a uma versão específica, o Pull Request não deve ser enviado para o branch master e sim para o branch correspondente a versão.
+
+Atenção
+-------------
+
+- O desenvolvedor não possui relação com a empresa Banco do Brasil SA, o plugin tem por objetivo a otimização dos recursos para e-commerce. 
+- O desenvolvedor apenas oferece a integração por meio de código aberto, livre para alterações de qualquer natureza. 
+- A análise de risco é realizada pelo Banco do Brasil.
+- O desenvolvedor não autoriza qualquer comercialização não-autorizada deste plugin.
+
