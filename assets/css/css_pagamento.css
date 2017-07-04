@@ -1,0 +1,65 @@
+@CHARSET "ISO-8859-1";
+/**
+ *	CSS da tela integração ( pagamentos )
+ * Arquivo integrante do Módulo de pagamentos Cielo Weber TI
+ */
+#div_erro .error {
+	padding-left:40px;
+ 	padding: 10px 10px 10px 40px;
+    border-top: 2px solid #990000;
+    border-bottom: 2px solid #990000;
+}
+.div_pagamentos{
+	width: 				60%;
+	border-left: 		5px #ddd solid;
+	padding:			10px;
+	
+	text-align:left;
+	
+	/*height: 113px;*/
+	
+	min-height:113px;
+}
+.field_visa{
+	
+	float:left;
+	
+	width: 200px;	
+}
+.table_pgto {
+/*	width:			250px;*/
+	padding:		2px;
+}
+#botao_envia{
+	background-color:#f79c27;	
+	border:#d87c05 solid;
+	padding: 2px;
+}
+.table_pgto tr td {
+	width:			100px;
+	padding-left:	5px;
+	vertical-align: middle;
+}
+.div_parcelas {
+	display:		none;
+	font: 			12px trebuchet ms;
+	font-size:		12px;
+	font-family:	trebuchet ms;
+}
+.valor_pagamento {
+	height:			30px;
+	font: 			18px trebuchet ms;
+	font-size:		18px;
+	font-family:	trebuchet ms;
+	font-weight: 	bold;
+	text-align:		right;
+}
+.titulo_cartao {
+	font: 			12px trebuchet ms;
+	font-size:		12px;
+	font-family:	trebuchet ms;
+	padding-left:	8px;
+}
+.subtitulo_cartao{
+	font-size: 14px;	
+}

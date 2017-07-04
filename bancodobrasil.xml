@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<extension version="2.5" type="plugin" group="vmpayment" method="upgrade">    
+    <name>Banco do Brasil</name>
+    <author>Luiz Felipe Weber</author>
+    <authorUrl>http://www.weber.eti.br</authorUrl>
+    <license>http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL</license>
+    <description>Plugin de pagamento Banco do Brasil
+	&lt;div style=&quot;background:#E5F5FF;border:1px solid #99D6FF;padding:10px;margin:10px; -box-shadow: inset 0px 0px 10px #fff, 0px 0px 5px #ccc; -webkit-box-shadow: inset 0px 0px 10px #fff, 0px 0px 5px #ccc; -moz-box-shadow: inset 0px 0px 10px #fff, 0px 0px 5px #ccc;&quot;&gt;
+		&lt;h1&gt;Plugin de pagamento Banco do Brasil para Virtuemart 2.0.&lt;/h1&gt;
+		&lt;div&gt;&lt;em&gt;Passo 1&lt;/em&gt; - Habilite o plugin aqui &lt;a href=&quot;index.php?option=com_plugins&amp;view=plugins&amp;filter_search=brasil&quot;&gt;Administrar Plugins&lt;/a&gt;&lt;/div&gt;
+		&lt;div&gt;&lt;em&gt;Passo 2&lt;/em&gt; - Instale Plugin por esta tela &lt;a href=&quot;index.php?option=com_virtuemart&amp;view=paymentmethod&quot;&gt;Métodos de pagamento&lt;/a&gt;&lt;/div&gt;
+		&lt;div&gt;&lt;em&gt;Passo 2.1&lt;/em&gt; - &lt;b&gt;Clique em Novo Método de Pagamento&lt;/b&gt; e preencha as informações:&lt;/div&gt;
+		&lt;div&gt;* Nome do Pagamento: &lt;b&gt;Banco do Brasil&lt;/b&gt;&lt;/div&gt;
+		&lt;div&gt;* Publicado: &lt;b&gt;Sim&lt;/b&gt;&lt;/div&gt;
+		&lt;div&gt;* Descrição do pagamento: &lt;b&gt;Pague com Boleto ou Transferência do Banco do Brasil&lt;/b&gt;&lt;/div&gt;
+		&lt;div&gt;* Método de pagamento: &lt;b&gt;Banco do Brasil&lt;/b&gt;&lt;/div&gt;
+		&lt;div&gt;* Grupo de Compradores: &lt;b&gt;-default-&lt;/b&gt;&lt;/div&gt;
+		&lt;div&gt;&lt;em&gt;Passo 2.2&lt;/em&gt; - &lt;b&gt;Clique em Salvar&lt;/b&gt;.&lt;/div&gt;
+		&lt;div&gt;&lt;em&gt;Passo 3&lt;/em&gt; - Na &lt;b&gt;aba configurações&lt;/b&gt;, preencha os dados:&lt;/div&gt;
+		&lt;div&gt;* Logotipos: &lt;b&gt;&lt;/b&gt;&lt;/div&gt;
+		&lt;div&gt;* Tipo da Integração: ( Todas as modalidades, somente boleto, somente débito ou somente crediário BB )&lt;/div&gt;
+		&lt;div&gt;* Modo Teste ( sim ou não )&lt;/div&gt;
+		&lt;div&gt;* Código de Convênio (Teste): &lt;/div&gt;
+		&lt;div&gt;* Código de Convênio Cobrança (Teste): &lt;/div&gt;
+		&lt;div&gt;* Dias Vencimento Boleto em Dias (Teste): &lt;/div&gt;		
+		&lt;div&gt;* Código de Convênio (Produção): &lt;/div&gt;
+		&lt;div&gt;* Código de Convênio Cobrança (Produção): &lt;/div&gt;
+		&lt;div&gt;* Dias Vencimento Boleto em Dias (Produção): &lt;/div&gt;		
+		&lt;div&gt;* Mensagem para ir no Boleto Bancário: &lt;/div&gt;		
+		&lt;div&gt;* Aprovado: &lt;b&gt;Status do Pedido quando Aprovada a transação&lt;/b&gt;&lt;/div&gt;
+		&lt;div&gt;* Cancelado: &lt;b&gt;Status do Pedido quando Cancelada a transação&lt;/b&gt;&lt;/div&gt;
+		&lt;div&gt;* Aguardando Pagto: &lt;b&gt;Status do Pedido quando transação Pendente&lt;/b&gt;&lt;/div&gt;
+	&lt;/div&gt;
+
+	&lt;div&gt;	Licença: &lt;a href=&quot;http://www.gnu.org/licenses/gpl-3.0.html&quot;&gt;GNU/GPL v3&lt;/a&gt; - Desenvolvido por Luiz Weber - &lt;a href=&quot;http://weber.eti.br&quot;&gt;Weber TI&lt;/a&gt;
+	
+	</description>
+    <files>
+        <filename plugin="bancodobrasil">bancodobrasil.php</filename>
+        <filename>licenca-gplv3.txt</filename>
+        <filename>leiame.txt</filename>
+        <filename>gplv3-license.txt</filename>
+        <filename>logo_bancodobrasil.jpg</filename>
+		<folder>imagens</folder>
+		<folder>admin</folder>
+		<folder>retorno</folder>
+    </files>
+
+    <config>        
+        <fields name="params" addfieldpath="/plugins/vmpayment/bancodobrasil/admin/elements/">
+            <fieldset name="basic">               
+    	
+                <field name="payment_logos" type="vmfiles" directory="/images/stories/virtuemart/payment"
+                       hide_none="1" label="VMPAYMENT_STANDARD_LOGOS"
+                       size="40"
+                       description="VMPAYMENT_STANDARD_LOGOS_TIP"/>        
+
+        		<field name="tipo_integracao" type="list" default="1" label="Tipo da Integração do Módulo">
+                    <option value="0">Todas as modalidades</option>
+                    <option value="2">Boleto Bancário</option>
+                    <option value="3">Débito em Conta Via Internet</option>
+                    <option value="5">BB Crediário Internet</option>
+                </field>
+
+        		<field name="modo_teste" type="radio" class="switch" default="1" label="Modo de teste">
+                    <option value="1">Sim</option>
+                    <option value="0">Não</option>
+                </field>
+
+        		<field type="vmspacer" default="Teste" />		
+        		<field name="convenio_teste" type="text" size="20"  label="Convênio (TESTE)" description="Código de convênio para Teste" />
+                <field name="cobranca_teste" type="text" size="20"  label="Convênio de Cobrança (TESTE)" description="Código de convênio de cobrança para Teste" />
+        		<field name="dias_vencimento_teste" type="text" size="20"  label="Dias Vencimento Boleto (TESTE)" description="Dias para vencimento do Boleto para Teste" />        
+        		
+        		<field type="vmspacer" default="Produção" />
+                <field name="convenio" type="text" size="20"  label="Convênio (PRODUÇÃO)" description="Código de convênio para Produção" />        
+                <field name="cobranca" type="text" size="20"  label="Convênio de Cobrança (PRODUÇÃO)" description="Código de convênio de cobrança para Produção" />        
+                <field name="dias_vencimento" type="text" size="20"  label="Dias Vencimento Boleto (PRODUÇÃO)" description="Dias para vencimento do Boleto para Produção" />        
+
+                <field name="mensagem_boleto" type="text" size="20"  label="Mensagem para Boleto" description="Mensagem para descritivo do Boleto" />
+
+           		<field type="vmspacer" default="Configuração Retorno" />
+        		<field name="tipo_retorno" type="list" default="ret" label="Tipo do retorno do BB">
+                    <option value="bbt">Arquivo .bbt</option>            
+                    <option value="ret">Arquivo .ret ( CNAB 400 )</option>            
+                </field>
+
+                <field name="coluna_captura" type="list" default="7" label="Coluna para captura do order_id" description="Coluna da captura do virtuemart_order_id">
+                    <option value="7">Coluna 7</option>            
+                    <option value="4">Coluna 4</option>            
+                </field>
+
+                <field name="funcao_processamento" type="list" default="1" label="Função para processamento do retorno" description="Função para processamento do retorno do banco, caso seja ">
+                    <option value="0">Função linhaProcessada </option>
+                    <option value="1">Função linhaProcessada1</option>
+                </field>
+
+        	    <field name="arquivo_retorno" type="text" size="50"  label="Url completa do arquivo de retorno" description="Url para o arquivo de retorno dos boletos enviados pelo BB. Ex.: /home/luiz/public_html/arquivos/retornoBB.bbt" value="/home/luiz/public_html/arquivos/retornoBB.bbt"/>
+           		<field type="vmconfiguracaobb" label="Configuração Retorno Pagamentos" />
+        	
+                <field type="vmspacer" default="Status postado pelo Banco do Brasil" />
+                <field name="status_aprovado" type="vmorderstate" default="C" label="Aprovado" description="Status aprovado dentro do seu Virtuemart" />
+                <field name="status_cancelado" type="vmorderstate" default="X" label="Cancelado" description="Status Cancelado dentro do seu Virtuemart" />
+                <field name="status_aguardando" type="vmorderstate" default="A" label="Aguardando Pagto" description="Status Aguardando Pagto dentro do seu Virtuemart" />
+
+        		<field type="vmspacer" default="Extras" />
+                <field name="load_squeezebox" type="radio" default="1" label="Carregar SqueezeBox JS">
+                    <option value="1">COM_VIRTUEMART_YES</option>
+                    <option value="0">COM_VIRTUEMART_NO</option>
+                </field>        
+
+                <field name="use_fancybox" type="radio" default="1" label="Usar Fancybox JS">
+                    <option value="1">COM_VIRTUEMART_YES</option>
+                    <option value="0">COM_VIRTUEMART_NO</option>
+                </field>
+
+        		<field name="countries" type="vmcountries"  scope="com_virtuemart" default="" label="Países" description="Países para validar este pagamento"/>
+        		<field name="min_amount" type="text"  label="Mínimo da Compra" description="Valor mínimo da compra pra utilizar a Cielo" />
+        		<field name="max_amount" type="text"  label="Máximo da Compra" description="Valor Máximo da compra para utilizar a Cielo" />
+        		<field name="cost_per_transaction" type="text"  label="Custo por Transação" description="Custo total por transação" />
+        		<field name="cost_percent_total" type="text"  label="Custo percentual total" description="Custo percentual total pela venda" />
+        		<field name="tax_id" type="vmtaxes" scope="com_virtuemart"  label="Tarifa/Imposto" description="Imposto ou tarifa aplicada" />
+
+                <field name="modo_calculo_desconto" type="list" default="1" label="Modo de cálculo de descontos/tarifas">
+                    <option value="1">Modo Simples ( desconto normal )</option>
+                    <option value="2">Modo VirtueMart ( desconto progressivo )</option>
+                </field>
+
+        		<field type="spacer"/>
+        		<field type="vmaboutbb" path="plugins/vmpayment/bancodobrasil/" />
+        		<field type="vmspacer" default="Licença: &lt;a href='http://www.gnu.org/licenses/gpl-3.0.html'&gt;GNU/GPL v3&lt;/a&gt; - Desenvolvido por Luiz Weber - &lt;a href='http://weber.eti.br'&gt;Weber TI&lt;/a&gt;" />
+                </fieldset>
+        </fields>
+    </config>    
+</extension>
