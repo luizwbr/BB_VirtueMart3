@@ -13,7 +13,7 @@ Passo 2.1 - Clique em Novo Método de Pagamento e preencha as informações:
 * Publicado: Sim
 * Descrição do pagamento: Pague com Boleto bancário ou Transferência Bancária
 * Método de pagamento: Banco do Brasil
-* Grupo de Compradores: -default-, -anonymous-
+* Grupo de Compradores: Não marque nenhum para gravar para todos.
 Passo 2.2 - Clique em Salvar.
 Passo 3 - Na aba configurações, preencha os dados:
 * Logotipos:
